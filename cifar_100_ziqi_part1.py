@@ -90,7 +90,6 @@ def train(epoch, model, trainloader, optimizer, criterion, CONFIG):
 
     return train_loss, train_acc
 
-
 ################################################################################
 # Define a validation function
 ################################################################################
@@ -135,7 +134,6 @@ def validate(model, valloader, criterion, device):
 
     return val_loss, val_acc
 
-
 def main():
 
     ############################################################################
@@ -144,7 +142,6 @@ def main():
     # It's convenient to put all the configuration in a dictionary so that we have
     # one place to change the configuration.
     # It's also convenient to pass to our experiment tracking tool.
-
 
     CONFIG = {
         "model": "MyModel",   # Change name when using a different model
@@ -223,7 +220,6 @@ def main():
         CONFIG["batch_size"] = optimal_batch_size
         print(f"Using batch size: {CONFIG['batch_size']}")
     
-
     ############################################################################
     # Loss Function, Optimizer and optional learning rate scheduler
     ############################################################################
