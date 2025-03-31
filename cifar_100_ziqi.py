@@ -37,55 +37,6 @@ class SimpleCNN(nn.Module):
         x = self.fc1(x)
         return x
 
-# class SimpleCNN(nn.Module):
-
-#     ### Defines a simple CNN arhcitecture with 5 layer
-
-#     def __init__(self):
-#         super(SimpleCNN, self).__init__()
-#         # TODO - define the layers of the network you will use
-#         # first layer
-#         self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1)
-#         self.bn1 = nn.BatchNorm2d(32)
-
-#         # second layer
-#         self.conv2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1)
-#         self.bn2 = nn.BatchNorm2d(64)
-
-#         # third layer
-#         self.conv3 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, padding=1)
-#         self.bn3 = nn.BatchNorm2d(128)
-
-#         # fourth layer
-#         self.conv4 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, padding=1)
-#         self.bn4 = nn.BatchNorm2d(256)
-
-#         # fifth layer
-#         self.conv5 = nn.Conv2d(in_channels=256, out_channels=512, kernel_size=3, padding=1)
-#         self.bn5 = nn.BatchNorm2d(512)
-
-#         self.fc1 = nn.Linear(512 * 4 * 4, 1024)
-#         self.fc2 = nn.Linear(1024, 100)  
-    
-#     def forward(self, x):
-#         # TODO - define the forward pass of the network you will use
-#         x = F.relu(self.bn1(self.conv1(x)))
-
-#         x = F.relu(self.bn2(self.conv2(x)))
-#         x = F.max_pool2d(x, kernel_size=2, stride=2)  
-
-#         x = F.relu(self.bn3(self.conv3(x)))
-
-#         x = F.relu(self.bn4(self.conv4(x)))
-#         x = F.max_pool2d(x, kernel_size=2, stride=2) 
-
-#         x = F.relu(self.bn5(self.conv5(x)))
-#         x = F.max_pool2d(x, kernel_size=2, stride=2)
-
-#         x = x.view(x.size(0), -1)
-#         x = F.relu(self.fc1(x))
-#         x = self.fc2(x)
-#         return x
 ################################################################################
 # Define a one epoch training function
 ################################################################################
