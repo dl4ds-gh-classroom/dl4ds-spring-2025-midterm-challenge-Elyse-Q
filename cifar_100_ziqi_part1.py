@@ -11,7 +11,6 @@ import pandas as pd
 from tqdm.auto import tqdm  # For progress bars
 import wandb
 import json
-
 ################################################################################
 # Model Definition (Simple Example - You need to complete)
 # For Part 1, you need to manually define a network.
@@ -58,7 +57,6 @@ def train(epoch, model, trainloader, optimizer, criterion, CONFIG):
         inputs, labels = inputs.to(device), labels.to(device)
 
         ### TODO - Your code here
-
         # parameter gradients
         optimizer.zero_grad()
 
@@ -129,23 +127,19 @@ def validate(model, valloader, criterion, device):
 
     val_loss = running_loss/len(valloader)
     val_acc = 100. * correct / total
-
     print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_acc:.2f}%")
-
     return val_loss, val_acc
 
 def main():
-
     ############################################################################
     #    Configuration Dictionary (Modify as needed)
     ############################################################################
     # It's convenient to put all the configuration in a dictionary so that we have
     # one place to change the configuration.
     # It's also convenient to pass to our experiment tracking tool.
-
     CONFIG = {
         "model": "MyModel",   # Change name when using a different model
-        "batch_size": 8, # run batch size finder to find optimal batch size
+        "batch_size": 512, # run batch size finder to find optimal batch size
         "learning_rate": 0.1,
         "epochs": 5,  # Train for longer in a real scenario
         "num_workers": 4, # Adjust based on your system
