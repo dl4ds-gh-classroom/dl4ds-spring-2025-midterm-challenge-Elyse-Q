@@ -43,8 +43,6 @@ def train(epoch, model, trainloader, optimizer, criterion, CONFIG):
     train_loss = running_loss / len(trainloader)
     train_acc = 100. * correct / total
 
-    print(f"Epoch [{epoch+1}/{CONFIG['epochs']}], Loss: {train_loss:.4f}, Accuracy: {train_acc:.2f}%")
-
     return train_loss, train_acc
 
 ################################################################################
@@ -71,8 +69,6 @@ def validate(model, valloader, criterion, device):
             progress_bar.set_postfix({"loss": running_loss / (i+1), "acc": 100. * correct / total})
     val_loss = running_loss/len(valloader)
     val_acc = 100. * correct / total
-    print(f"Validation Loss: {val_loss:.4f}, Validation Accuracy: {val_acc:.2f}%")
-
     return val_loss, val_acc
 
 def main():
@@ -81,7 +77,7 @@ def main():
     ############################################################################
     CONFIG = {
         "model": "MyModel",   # Change name when using a different model
-        "batch_size": 8, # run batch size finder to find optimal batch size
+        "batch_size": 512, # run batch size finder to find optimal batch size
         "learning_rate": 0.1,
         "epochs": 5,  # Train for longer in a real scenario
         "num_workers": 4, # Adjust based on your system
