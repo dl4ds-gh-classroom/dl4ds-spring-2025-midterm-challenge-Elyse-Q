@@ -136,15 +136,15 @@ def main():
     ############################################################################
     #   Instantiate model and move to target device
     ############################################################################
-    lr_candidates = [0.001, 0.0005, 0.0001]
-    wd_candidates = [1e-5, 1e-4, 1e-3]
-    dropout_candidates = [0.1, 0.2, 0.3]
+    lrs = [0.001, 0.0005, 0.0001]
+    wds = [1e-5, 1e-4, 1e-3]
+    dropouts = [0.1, 0.2, 0.3]
     tuning_epochs = 5
     best_hp_val_acc = 0.0
     best_hp_config = {"lr": None, "weight_decay": None, "dropout": None}
-    for lr in lr_candidates:
-        for wd in wd_candidates:
-            for dropout in dropout_candidates:
+    for lr in lrs:
+        for wd in wds:
+            for dropout in dropouts:
                 print(f"\nTesting lr: {lr}, weight_decay: {wd}, dropout: {dropout}")
                 model_hp = torchvision.models.resnet50(pretrained=True)
                 in_features = model_hp.fc.in_features
